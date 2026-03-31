@@ -11,27 +11,45 @@
 </head>
 <body class="bg-[#f4f4f4] p-4 md:p-8">
     <div class="max-w-4xl mx-auto space-y-6">
-        <nav class="nes-container is-rounded bg-white flex justify-around p-2 mb-4">
+        <nav class="nes-container is-rounded bg-white flex justify-around p-2 mb-4 shadow-pixel">
             <a href="index.html" class="nes-btn text-[10px]">STATUS</a>
             <a href="projects.html" class="nes-btn text-[10px]">ITEMS</a>
             <a href="about.html" class="nes-btn is-warning text-[10px]">LORE</a>
             <a href="contact.html" class="nes-btn text-[10px]">QUEST</a>
         </nav>
 
-        <section class="nes-container with-title bg-white">
+        <section class="nes-container with-title bg-white shadow-pixel">
             <p class="title text-[10px]">Adventure Log</p>
-            <div class="p-4 space-y-10 text-xs">
-                <div class="nes-balloon from-left">
-                    <p>2022年，我在新手村习得了第一行 HTML 代码，开启了代码冒险。</p>
+            <div class="p-4 space-y-12 text-xs">
+                
+                <div class="flex items-end gap-6">
+                    <div class="w-16 h-16 flex items-center justify-center shrink-0">
+                        <i class="nes-mario scale-150"></i>
+                    </div>
+                    <div class="nes-balloon from-left">
+                        <p>2022年，我在新手村习得了第一行 HTML 代码，开启了代码冒险。</p>
+                    </div>
                 </div>
-                <div class="flex items-start gap-4 justify-end">
+
+                <div class="flex items-end gap-6 justify-end">
                     <div class="nes-balloon from-right is-dark">
                         <p>随后挑战了 JavaScript 地牢，并成功装备了【全栈开发】卷轴。</p>
                     </div>
+                    <div class="w-16 h-16 flex items-center justify-center shrink-0">
+                        <i class="nes-ash scale-150"></i>
+                    </div>
                 </div>
-                <div class="nes-container is-rounded p-4 bg-slate-50 mt-4">
-                    <p class="font-bold mb-2 text-sm">[ 隐藏被动 ]</p>
-                    <p>【持续进化】：每次解决 Bug 后，代码优雅度属性永久 +1。</p>
+
+                <div class="nes-container is-rounded p-4 bg-slate-50 mt-6 relative">
+                    <div class="absolute -top-6 -left-6">
+                        <i class="nes-pokeball scale-110"></i>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6">
+                        <i class="nes-bulbasaur scale-110"></i>
+                    </div>
+                    
+                    <p class="font-bold mb-3 text-sm text-center font-pixel">[ 隐藏被动 ]</p>
+                    <p class="leading-relaxed">【持续进化】：每次解决 Bug 后，代码优雅度属性永久 +1。</p>
                 </div>
             </div>
         </section>
