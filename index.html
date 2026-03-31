@@ -1,4 +1,73 @@
-<p>YujiaHu's personal website</p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的名字 | 个人主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-['Inter']">
 
-<ul>
-</ul>
+    <nav class="fixed w-full z-50 backdrop-blur-md bg-white/70 border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-extrabold tracking-tight">PORTFOLIO.</span>
+            <div class="space-x-8 font-medium text-sm">
+                <a href="#about" class="hover:text-blue-600 transition">关于</a>
+                <a href="#projects" class="hover:text-blue-600 transition">项目</a>
+                <a href="#contact" class="hover:text-blue-600 transition">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 space-y-6">
+                <h2 class="text-blue-600 font-semibold tracking-wide uppercase text-sm">Hello, 我是</h2>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight">
+                    一名持续进化的 <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">开发者</span>
+                </h1>
+                <p class="text-lg text-slate-600 max-w-lg leading-relaxed">
+                    在这里分享我的技术思考、开源项目以及生活点滴。我热衷于用代码解决真实世界的问题。
+                </p>
+                <div class="flex gap-4">
+                    <a href="#projects" class="bg-slate-900 text-white px-8 py-3 rounded-full hover:bg-slate-800 transition shadow-lg">查看作品集集集</a>
+                    <a href="https://github.com/你的用户名" class="border border-slate-300 px-8 py-3 rounded-full hover:bg-slate-50 transition">GitHub</a>
+                </div>
+            </div>
+            <div class="w-64 h-64 md:w-80 md:h-80 relative">
+                <img src="https://via.placeholder.com/400" alt="Avatar" class="rounded-3xl shadow-2xl object-cover transform rotate-3 hover:rotate-0 transition duration-500">
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-slate-100">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">精选项目</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200">
+                    <div class="h-48 bg-slate-200 overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">项目名称 A</h3>
+                        <p class="text-slate-500 text-sm mb-4">描述这个项目的核心功能，使用了什么技术栈（如 React, Python）。</p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs rounded-full">React</span>
+                            <span class="px-3 py-1 bg-green-50 text-green-600 text-xs rounded-full">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-12 border-t border-slate-200 text-center text-slate-400 text-sm">
+        <p>© 2026 YourName. Built with ❤️ and GitHub Pages.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
