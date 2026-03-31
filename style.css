@@ -1,38 +1,47 @@
-/* 全局像素字体 */
-body {
-    font-family: 'Inter', -apple-system, sans-serif;
-}
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-/* 针对标题使用像素字体 */
-.title, nav a, .nes-badge, progress, .font-pixel {
+.font-pixel {
     font-family: 'Press Start 2P', cursive !important;
 }
 
-/* 像素头像增强 */
-.pixel-avatar {
-    image-rendering: pixelated;
-    object-fit: cover;
-}
-
-/* 自定义像素投影 */
-.shadow-pixel {
-    box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
-}
-
-.nes-container {
-    margin-bottom: 2rem;
-}
-
-/* 背景点阵装饰 */
 body {
     background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-size: 30px 30px;
+    font-family: -apple-system, "Noto Sans SC", sans-serif;
 }
 
-/* 导航按钮缩小适配手机 */
-@media (max-width: 600px) {
-    .nes-btn {
-        padding: 5px 10px !important;
-        font-size: 8px !important;
+/* 统一像素投影，更有立体感 */
+.shadow-pixel {
+    box-shadow: 8px 8px 0px 0px rgba(0,0,0,1) !important;
+}
+
+.pixel-avatar {
+    image-rendering: pixelated;
+    border: 6px solid #000;
+}
+
+/* 导航栏呼吸效果 */
+nav .nes-btn {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+}
+
+/* 覆盖 NES.css 的默认按钮缩放，使其更显高级 */
+.nes-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+}
+
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
