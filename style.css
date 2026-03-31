@@ -1,47 +1,35 @@
-/* style.css */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-.font-pixel {
-    font-family: 'Press Start 2P', cursive !important;
-}
-
+/* 全局样式 */
 body {
     background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
-    background-size: 30px 30px;
-    font-family: -apple-system, "Noto Sans SC", sans-serif;
+    background-size: 20px 20px;
+    font-family: 'Press Start 2P', cursive, -apple-system, sans-serif;
 }
 
-/* 统一像素投影，更有立体感 */
-.shadow-pixel {
-    box-shadow: 8px 8px 0px 0px rgba(0,0,0,1) !important;
-}
-
+/* 像素头像增强 */
 .pixel-avatar {
     image-rendering: pixelated;
-    border: 6px solid #000;
-}
-
-/* 导航栏呼吸效果 */
-nav .nes-btn {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
-}
-
-/* 覆盖 NES.css 的默认按钮缩放，使其更显高级 */
-.nes-btn:hover {
-    transform: translate(-2px, -2px);
     box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
 }
 
-section {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease-out forwards;
+/* 覆盖默认字体，让非像素字体更有科技感 */
+h1, p, span, li, input {
+    font-family: "Noto Sans SC", sans-serif;
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+.title, .nes-btn, .nes-badge, progress {
+    font-family: 'Press Start 2P', cursive !important;
+}
+
+/* 卡片投影效果 */
+.nes-container {
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1) !important;
+    margin-bottom: 1.5rem;
+}
+
+/* 移动端导航缩放 */
+@media (max-width: 640px) {
+    .nes-btn {
+        padding: 4px 8px !important;
+        font-size: 6px !important;
     }
 }
