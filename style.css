@@ -1,34 +1,38 @@
-/* style.css */
+/* 全局像素字体 */
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+}
 
-/* 让头像看起来更有像素质感 */
+/* 针对标题使用像素字体 */
+.title, nav a, .nes-badge, progress, .font-pixel {
+    font-family: 'Press Start 2P', cursive !important;
+}
+
+/* 像素头像增强 */
 .pixel-avatar {
     image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
+    object-fit: cover;
 }
 
-/* 所有的容器投影统一，增加厚重感 */
-.nes-container, .item-card {
-    box-shadow: 6px 6px 0px 0px rgba(0,0,0,1) !important;
-    border-width: 4px !important;
-    margin-bottom: 6px;
+/* 自定义像素投影 */
+.shadow-pixel {
+    box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
 }
 
-.nes-container:hover, .item-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0px 0px rgba(0,0,0,1) !important;
-    transition: all 0.1s ease-in-out;
+.nes-container {
+    margin-bottom: 2rem;
 }
 
-/* 响应式调整 */
-@media (max-width: 768px) {
-    .title {
-        font-size: 8px !important;
-    }
-}
-
-/* 增加背景的网格点阵感（高级美工细节） */
+/* 背景点阵装饰 */
 body {
     background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
     background-size: 20px 20px;
+}
+
+/* 导航按钮缩小适配手机 */
+@media (max-width: 600px) {
+    .nes-btn {
+        padding: 5px 10px !important;
+        font-size: 8px !important;
+    }
 }
