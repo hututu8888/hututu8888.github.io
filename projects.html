@@ -2,55 +2,39 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>胡雨佳 | Projects</title>
+    <title>胡雨佳 | Items</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#f4f4f4] pt-32 pb-20">
-    <nav class="fixed top-0 w-full z-50 p-4">
-        <div class="max-w-6xl mx-auto nes-container is-rounded bg-white flex justify-between items-center py-2 px-6 shadow-pixel">
-            <span class="font-pixel text-sm">WORKS</span>
-            <div class="space-x-4">
-                <a href="index.html" class="nes-btn is-small">HOME</a>
-                <a href="projects.html" class="nes-btn is-success is-small">WORK</a>
-                <a href="about.html" class="nes-btn is-small">LORE</a>
-                <a href="contact.html" class="nes-btn is-small">QUEST</a>
-            </div>
-        </div>
-    </nav>
+<body class="bg-[#f4f4f4] p-4 md:p-8 text-xs">
+    <div class="max-w-4xl mx-auto space-y-6">
+        <nav class="nes-container is-rounded bg-white flex justify-around p-2 mb-4">
+            <a href="index.html" class="nes-btn text-[10px]">STATUS</a>
+            <a href="projects.html" class="nes-btn is-success text-[10px]">ITEMS</a>
+            <a href="about.html" class="nes-btn text-[10px]">LORE</a>
+            <a href="contact.html" class="nes-btn text-[10px]">QUEST</a>
+        </nav>
 
-    <div class="max-w-6xl mx-auto px-6 space-y-20">
-        <div class="flex flex-col md:flex-row gap-12 items-center">
-            <div class="flex-1 nes-container is-rounded bg-white p-0 overflow-hidden shadow-pixel">
-                <div class="h-64 bg-blue-100 flex items-center justify-center">
-                    <i class="nes-icon trophy is-large scale-150"></i>
+        <section class="nes-container with-title bg-white">
+            <p class="title text-[10px]">Inventory (Works)</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
+                <div class="nes-container is-rounded p-4 border-2">
+                    <i class="nes-icon coin is-small mb-2"></i>
+                    <h3 class="font-bold mb-2">个人主页 3.0</h3>
+                    <p class="text-slate-500">基于 NES.css 的像素级交互站点。</p>
+                </div>
+                <div class="nes-container is-rounded p-4 border-2">
+                    <i class="nes-icon trophy is-small mb-2"></i>
+                    <h3 class="font-bold mb-2">AI 设计助手</h3>
+                    <p class="text-slate-500">Gemini 驱动的自动化 UI 生成工具。</p>
+                </div>
+                <div class="nes-container is-rounded p-4 border-dashed opacity-50 flex items-center justify-center">
+                    <p>Empty Slot</p>
                 </div>
             </div>
-            <div class="flex-1 space-y-6">
-                <h2 class="text-3xl font-bold">NexusFlow 系统</h2>
-                <p class="text-slate-600 leading-relaxed">基于像素逻辑的全栈自动化工作流。支持 8-bit 视觉风格的拖拽式编辑，让部署像打通关游戏一样简单。</p>
-                <div class="flex gap-2">
-                    <span class="nes-badge"><span class="is-dark text-[8px]">TS</span></span>
-                    <span class="nes-badge"><span class="is-primary text-[8px]">GO</span></span>
-                </div>
-                <a href="#" class="nes-btn is-primary">LAUNCH PROJECT</a>
-            </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
-            <div class="flex-1 nes-container is-rounded bg-white p-0 overflow-hidden shadow-pixel">
-                <div class="h-64 bg-yellow-100 flex items-center justify-center">
-                    <i class="nes-icon star is-large scale-150"></i>
-                </div>
-            </div>
-            <div class="flex-1 space-y-6">
-                <h2 class="text-3xl font-bold">AI Pixel Art 生成器</h2>
-                <p class="text-slate-600 leading-relaxed">利用 Gemini API 自动将普通图片转化为像素风素材的实验性工具。</p>
-                <a href="#" class="nes-btn is-warning">VIEW SOURCE</a>
-            </div>
-        </div>
+        </section>
     </div>
 </body>
 </html>
