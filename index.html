@@ -3,69 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>胡雨佳 | 个人主页</title>
+    <title>胡雨佳 | HYJ.DEV</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // 配置 Tailwind 主题以匹配 style.css
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#020617',
+                        card: '#0f172a',
+                        neonBlue: '#38bdf8',
+                        neonPurple: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-slate-50 text-slate-900 font-['Inter']">
+<body class="bg-dark text-slate-100 font-sans">
 
-    <nav class="fixed w-full z-50 backdrop-blur-md bg-white/70 border-b border-slate-200">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl font-extrabold tracking-tight">PORTFOLIO.</span>
-            <div class="space-x-8 font-medium text-sm">
-                <a href="#about" class="hover:text-blue-600 transition">关于</a>
-                <a href="#projects" class="hover:text-blue-600 transition">项目</a>
-                <a href="#contact" class="hover:text-blue-600 transition">联系</a>
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-2xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">HYJ.</span>
+            <div class="space-x-8 font-medium text-sm text-slate-300">
+                <a href="#about" class="hover:text-neonBlue transition-colors duration-300">关于我</a>
+                <a href="#projects" class="hover:text-neonBlue transition-colors duration-300">核心项目</a>
+                <a href="https://github.com/hututu8888" target="_blank" class="text-lg hover:text-neonBlue transition-colors"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 px-6">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-1 space-y-6">
-                <h2 class="text-blue-600 font-semibold tracking-wide uppercase text-sm">Hello, 我是</h2>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight">
-                    一名持续进化的 <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">开发者</span>
+    <section class="min-h-screen pt-32 pb-20 px-6 flex items-center relative overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-neonBlue/10 rounded-full blur-[128px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neonPurple/10 rounded-full blur-[128px]"></div>
+
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
+            <div class="flex-1 space-y-8">
+                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-card border border-slate-800 text-sm text-neonBlue">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neonBlue opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-neonBlue"></span>
+                    </span>
+                    <span>Seeking Challenges</span>
+                </div>
+                
+                <h1 class="text-6xl md:text-7xl font-extrabold leading-tight tracking-tighter">
+                    我是 胡雨佳<br>
+                    <span id="typing-text" class="text-slate-400"></span><span class="cursor">|</span>
                 </h1>
-                <p class="text-lg text-slate-600 max-w-lg leading-relaxed">
-                    在这里分享我的技术思考、开源项目以及生活点滴。我热衷于用代码解决真实世界的问题。
+                
+                <p class="text-xl text-slate-400 max-w-2xl leading-relaxed">
+                    专注于构建高性能、高可用的全栈 Web 应用。热衷于探索前沿技术，用富有创造力的代码解决复杂问题。
                 </p>
-                <div class="flex gap-4">
-                    <a href="#projects" class="bg-slate-900 text-white px-8 py-3 rounded-full hover:bg-slate-800 transition shadow-lg">查看作品集集集</a>
-                    <a href="https://github.com/你的用户名" class="border border-slate-300 px-8 py-3 rounded-full hover:bg-slate-50 transition">GitHub</a>
+                
+                <div class="flex gap-6 pt-4">
+                    <a href="#projects" class="btn-neon px-10 py-3.5 rounded-full font-bold text-lg shadow-lg">探索项目</a>
+                    <a href="#about" class="group border border-slate-700 px-10 py-3.5 rounded-full hover:border-neonPurple transition-all duration-300 text-slate-300">
+                        了解我 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
                 </div>
             </div>
-            <div class="w-64 h-64 md:w-80 md:h-80 relative">
-                <img src="https://via.placeholder.com/400" alt="Avatar" class="rounded-3xl shadow-2xl object-cover transform rotate-3 hover:rotate-0 transition duration-500">
+            
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-neonBlue to-neonPurple rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-card">
+                    <img src="assets/avatar.jpg" alt="胡雨佳 头像" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-20 bg-slate-100">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">精选项目</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200">
-                    <div class="h-48 bg-slate-200 overflow-hidden">
-                        <img src="https://via.placeholder.com/600x400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">项目名称 A</h3>
-                        <p class="text-slate-500 text-sm mb-4">描述这个项目的核心功能，使用了什么技术栈（如 React, Python）。</p>
-                        <div class="flex gap-2">
-                            <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs rounded-full">React</span>
-                            <span class="px-3 py-1 bg-green-50 text-green-600 text-xs rounded-full">Firebase</span>
+    <section id="about" class="py-24 px-6 bg-dark/50">
+        <div class="max-w-6xl mx-auto">
+            <p class="text-center text-neonPurple font-medium mb-2 tracking-widest">TRAITS</p>
+            <h2 class="text-4xl font-bold mb-16 text-center tracking-tight">性格与核心特质</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-card p-8 rounded-3xl border border-slate-800 space-y-4 hover:border-neonPurple/50 transition-colors duration-300">
+                    <div class="text-3xl text-neonPurple"><i class="fas fa-brain"></i></div>
+                    <h3 class="text-xl font-bold text-slate-100">探究型人格 (Investigative)</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        天生对事物背后的逻辑充满好奇。面对复杂系统，我喜欢拆解、钻研，从底层原理出发解决问题。不满足于“能运行”，更追求“为什么”。
+                    </p>
+                </div>
+                <div class="bg-card p-8 rounded-3xl border border-slate-800 space-y-4 hover:border-neonPurple/50 transition-colors duration-300">
+                    <div class="text-3xl text-neonBlue"><i class="fas fa-magic"></i></div>
+                    <h3 class="text-xl font-bold text-slate-100">极客美学追求者</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        不仅是开发者，也是半个美工。我认为优秀的软件应当是代码逻辑与视觉体验的完美融合。对 UI 的像素级细节和流畅动效有着偏执的追求。
+                    </p>
+                </div>
+                <div class="bg-card p-8 rounded-3xl border border-slate-800 space-y-4 hover:border-neonPurple/50 transition-colors duration-300">
+                    <div class="text-3xl text-emerald-400"><i class="fas fa-seedling"></i></div>
+                    <h3 class="text-xl font-bold text-slate-100">持续进化的学习者</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        技术迭代越快，我越兴奋。具备极强的自驱力和快速整合碎片化信息的能力，享受从 0 到 1 掌握一项新技术的成就感。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <p class="text-center text-neonBlue font-medium mb-2 tracking-widest">WORKS</p>
+            <h2 class="text-4xl font-bold mb-16 text-center tracking-tight">精选开源项目</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="project-card group bg-card rounded-3xl overflow-hidden shadow-2xl border border-slate-800 transition-all duration-300">
+                    <div class="p-8 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-2xl font-bold text-slate-100 group-hover:text-neonBlue transition-colors">NexusFlow</h3>
+                            <a href="#" class="text-slate-500 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <p class="text-slate-400 leading-relaxed">
+                            基于 Next.js 14 和 Go 的企业级全栈工作流自动化平台。支持可视化流程编辑、实时数据监控以及插件式扩展。
+                        </p>
+                        <div class="flex gap-3 pt-2">
+                            <span class="px-3 py-1 bg-neonBlue/10 text-neonBlue text-xs rounded-full border border-neonBlue/20">TS/Next.js</span>
+                            <span class="px-3 py-1 bg-emerald-900/50 text-emerald-300 text-xs rounded-full border border-emerald-800">Golang</span>
+                            <span class="px-3 py-1 bg-slate-800 text-slate-300 text-xs rounded-full">Docker</span>
                         </div>
                     </div>
                 </div>
+                
                 </div>
         </div>
     </section>
 
-    <footer id="contact" class="py-12 border-t border-slate-200 text-center text-slate-400 text-sm">
-        <p>© 2026 YourName. Built with ❤️ and GitHub Pages.</p>
+    <footer id="contact" class="py-16 px-6 border-t border-slate-800 bg-black">
+        <div class="max-w-6xl mx-auto text-center space-y-6">
+            <div class="text-3xl space-x-6 text-slate-600">
+                <a href="https://github.com/hututu8888" class="hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                <a href="mailto:yujia.hu@email.com" class="hover:text-neonBlue transition-colors"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="text-slate-500 text-sm font-light tracking-wide">
+                © 2026 胡雨佳 (HUTUTU8888). 
+                <span class="mx-2 text-slate-800">|</span> 
+                DESIGNED FOR THE FUTURE.
+            </p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
