@@ -2,36 +2,33 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>胡雨佳 | Items</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#f4f4f4] p-4 md:p-8 text-xs">
+<body class="p-4 md:p-8">
     <div class="max-w-4xl mx-auto space-y-6">
-        <nav class="nes-container is-rounded bg-white flex justify-around p-2 mb-4">
-            <a href="index.html" class="nes-btn text-[10px]">STATUS</a>
-            <a href="projects.html" class="nes-btn is-success text-[10px]">ITEMS</a>
-            <a href="about.html" class="nes-btn text-[10px]">LORE</a>
-            <a href="contact.html" class="nes-btn text-[10px]">QUEST</a>
+        <nav class="nes-container is-rounded global-nav mb-8">
+            <a href="index.html" class="nes-btn nav-btn">STATUS</a>
+            <a href="projects.html" class="nes-btn is-success nav-btn">ITEMS</a>
+            <a href="about.html" class="nes-btn nav-btn">LORE</a>
+            <a href="contact.html" class="nes-btn nav-btn">QUEST</a>
         </nav>
 
-        <section class="nes-container with-title bg-white">
-            <p class="title text-[10px]">Inventory (Works)</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
+        <section class="nes-container with-title">
+            <p class="title text-[10px]">Inventory</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 py-2">
                 <div class="nes-container is-rounded p-4 border-2">
-                    <i class="nes-icon coin is-small mb-2"></i>
-                    <h3 class="font-bold mb-2">个人主页 3.0</h3>
-                    <p class="text-slate-500">基于 NES.css 的像素级交互站点。</p>
+                    <i class="nes-icon coin is-small"></i>
+                    <p class="font-bold mt-2">个人主页 3.0</p>
+                    <p class="text-[10px] text-gray-500">当前正在访问的像素仓库。</p>
                 </div>
                 <div class="nes-container is-rounded p-4 border-2">
-                    <i class="nes-icon trophy is-small mb-2"></i>
-                    <h3 class="font-bold mb-2">AI 设计助手</h3>
-                    <p class="text-slate-500">Gemini 驱动的自动化 UI 生成工具。</p>
-                </div>
-                <div class="nes-container is-rounded p-4 border-dashed opacity-50 flex items-center justify-center">
-                    <p>Empty Slot</p>
+                    <i class="nes-icon star is-small"></i>
+                    <p class="font-bold mt-2">AI 助手</p>
+                    <p class="text-[10px] text-gray-500">集成 Gemini 能力的设计工具。</p>
                 </div>
             </div>
         </section>
