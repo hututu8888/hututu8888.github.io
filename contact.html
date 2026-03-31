@@ -2,35 +2,35 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>胡雨佳 | Contact</title>
+    <title>胡雨佳 | Quest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#f4f4f4] p-4">
-    <div class="max-w-4xl mx-auto">
-        <nav class="nes-container is-rounded mb-10 bg-white flex justify-around p-2">
-            <a href="index.html" class="nes-btn text-[10px]">主页</a>
-            <a href="projects.html" class="nes-btn text-[10px]">项目</a>
-            <a href="about.html" class="nes-btn text-[10px]">关于</a>
-            <a href="contact.html" class="nes-btn is-error text-[10px]">联系</a>
+<body class="bg-[#f4f4f4] p-4 md:p-8">
+    <div class="max-w-4xl mx-auto space-y-6">
+        <nav class="nes-container is-rounded bg-white flex justify-around p-2 mb-4">
+            <a href="index.html" class="nes-btn text-[10px]">STATUS</a>
+            <a href="projects.html" class="nes-btn text-[10px]">ITEMS</a>
+            <a href="about.html" class="nes-btn text-[10px]">LORE</a>
+            <a href="contact.html" class="nes-btn is-error text-[10px]">QUEST</a>
         </nav>
 
         <section class="nes-container with-title bg-white">
-            <p class="title text-[10px]">Quest Board</p>
-            <div class="text-center py-10 space-y-10">
-                <p class="text-sm">有新的任务委托？通过以下方式发送信鸽：</p>
-                <div class="flex justify-center gap-10">
-                    <a href="#"><i class="nes-icon gmail is-large"></i></a>
-                    <a href="https://github.com/hututu8888"><i class="nes-icon github is-large"></i></a>
-                    <a href="#"><i class="nes-icon linkedin is-large"></i></a>
+            <p class="title text-[10px]">Post a Quest</p>
+            <div class="text-center p-8 space-y-8 text-xs">
+                <p>有新的任务需要协作？给我发封信吧：</p>
+                <div class="flex justify-center gap-8">
+                    <a href="#"><i class="nes-icon gmail is-medium"></i></a>
+                    <a href="#"><i class="nes-icon github is-medium"></i></a>
+                    <a href="#"><i class="nes-icon linkedin is-medium"></i></a>
                 </div>
-                <div class="nes-field is-inline mt-10">
-                    <label for="name_field">留言者：</label>
-                    <input type="text" id="name_field" class="nes-input text-xs" placeholder="冒险者姓名">
+                <div class="nes-field mt-8 text-left">
+                    <label for="dark_field" class="text-xs">冒险者姓名:</label>
+                    <input type="text" id="dark_field" class="nes-input is-dark" placeholder="Your Name">
                 </div>
-                <button type="button" class="nes-btn is-error">发布任务</button>
+                <button type="button" class="nes-btn is-error">发送任务书</button>
             </div>
         </section>
     </div>
