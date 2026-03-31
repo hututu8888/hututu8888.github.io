@@ -3,96 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>胡雨佳 | LEVEL 1 DEVELOPER</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>胡雨佳 | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#f4f4f4] text-slate-800 p-4 md:p-8">
+<body class="bg-[#f4f4f4] p-4">
+    <div class="max-w-4xl mx-auto">
+        <nav class="nes-container is-rounded mb-10 bg-white flex justify-around p-2">
+            <a href="index.html" class="nes-btn is-primary text-[10px]">主页</a>
+            <a href="projects.html" class="nes-btn text-[10px]">项目</a>
+            <a href="about.html" class="nes-btn text-[10px]">关于</a>
+            <a href="contact.html" class="nes-btn text-[10px]">联系</a>
+        </nav>
 
-    <div class="max-w-4xl mx-auto space-y-10">
-        
-        <header class="nes-container with-title is-centered bg-white">
-            <p class="title text-xs font-['Press_Start_2P']">Player Status</p>
-            <div class="flex flex-col md:flex-row items-center gap-8 py-4">
-                <div class="avatar-pixel-wrap">
-                    <img src="assets/avatar.jpg" alt="胡雨佳" class="pixel-avatar w-32 h-32 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                </div>
-                <div class="text-center md:text-left space-y-4">
-                    <h1 class="text-2xl font-bold">胡雨佳 (HUTUTU)</h1>
-                    <p class="nes-badge"><span class="is-primary font-['Press_Start_2P'] text-[10px]">LV. 24 FULLSTACK</span></p>
-                    <p class="text-sm leading-relaxed">“正在加载更多代码... 目标是写出像艺术品一样的逻辑。”</p>
-                </div>
-            </div>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <section class="nes-container with-title is-rounded bg-white">
-                <p class="title text-[10px] font-['Press_Start_2P'] text-[#ff7e5f]">Attributes</p>
-                <div class="space-y-4 text-sm">
-                    <div class="flex items-center gap-2">
-                        <i class="nes-icon heart is-small"></i>
-                        <span>好奇心：100% (探究型)</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="nes-icon star is-small"></i>
-                        <span>美工力：85% (像素风追求者)</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="nes-icon like is-small"></i>
-                        <span>耐力：无限 (Bug 终结者)</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="nes-container with-title is-rounded bg-white">
-                <p class="title text-[10px] font-['Press_Start_2P'] text-[#5dade2]">Skills</p>
-                <div class="space-y-3">
-                    <span class="text-xs">HTML/CSS</span>
-                    <progress class="nes-progress is-primary" value="90" max="100"></progress>
-                    <span class="text-xs">JavaScript</span>
-                    <progress class="nes-progress is-success" value="80" max="100"></progress>
-                    <span class="text-xs">React/Next.js</span>
-                    <progress class="nes-progress is-warning" value="70" max="100"></progress>
-                </div>
-            </section>
-        </div>
-
-        <section id="projects" class="nes-container with-title bg-white">
-            <p class="title text-[10px] font-['Press_Start_2P'] text-[#76b852]">Inventory (Works)</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="item-card p-4 border-4 border-black hover:bg-slate-50 transition-colors cursor-pointer group">
-                    <div class="flex items-start gap-4">
-                        <i class="nes-icon coin is-medium mt-1"></i>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1 group-hover:text-[#76b852]">个人主页 2.0</h3>
-                            <p class="text-xs text-slate-500">基于像素美学的响应式 GitHub Pages 展示站。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-card p-4 border-4 border-black hover:bg-slate-50 transition-colors cursor-pointer group">
-                    <div class="flex items-start gap-4">
-                        <i class="nes-jp-logo is-medium mt-1"></i>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1 group-hover:text-[#5dade2]">AI 辅助设计工具</h3>
-                            <p class="text-xs text-slate-500">集成 Gemini 能力的自动化 UI 生成助手。</p>
-                        </div>
+        <section class="nes-container with-title bg-white">
+            <p class="title text-[10px]">Player Info</p>
+            <div class="flex flex-col md:flex-row items-center gap-10 p-4">
+                <img src="assets/avatar.jpg" alt="Avatar" class="pixel-avatar w-40 h-40 border-4 border-black shadow-pixel">
+                <div class="space-y-4">
+                    <h1 class="text-xl font-bold">胡雨佳 (HUTUTU)</h1>
+                    <p class="nes-badge"><span class="is-warning text-[8px]">LEVEL 24 DEVELOPER</span></p>
+                    <div class="nes-balloon from-left">
+                        <p class="text-sm">你好，世界！我正在收集代码碎片以合成最终神器。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <footer class="text-center py-10 space-y-4">
-            <div class="flex justify-center gap-6">
-                <a href="#"><i class="nes-icon github is-medium"></i></a>
-                <a href="#"><i class="nes-icon twitter is-medium"></i></a>
-                <a href="#"><i class="nes-icon mail is-medium"></i></a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+            <div class="nes-container with-title bg-white">
+                <p class="title text-[10px] text-blue-500">Stats</p>
+                <div class="text-xs space-y-4">
+                    <div><span>代码力</span> <progress class="nes-progress is-primary" value="85" max="100"></progress></div>
+                    <div><span>设计力</span> <progress class="nes-progress is-success" value="70" max="100"></progress></div>
+                    <div><span>Debug</span> <progress class="nes-progress is-error" value="95" max="100"></progress></div>
+                </div>
             </div>
-            <p class="text-[10px] font-['Press_Start_2P'] text-slate-400">© 2026 HUTUTU - SAVE COMPLETE</p>
-        </footer>
-
+            <div class="nes-container with-title bg-white text-xs">
+                <p class="title text-[10px] text-yellow-600">Equipment</p>
+                <ul class="nes-list is-disc">
+                    <li>VS Code (神器)</li>
+                    <li>React (护甲)</li>
+                    <li>Tailwind (披风)</li>
+                </ul>
+            </div>
+        </div>
     </div>
-
 </body>
 </html>
