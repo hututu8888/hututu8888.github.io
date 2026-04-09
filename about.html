@@ -7,6 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .medal-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .medal-text { font-size: 7px; margin-top: 8px; line-height: 1.2; }
+    </style>
 </head>
 <body class="bg-[#f4f4f4] p-4 md:p-8">
     <div class="max-w-4xl mx-auto space-y-6">
@@ -17,26 +21,80 @@
             <a href="contact.html" class="nes-btn text-[10px]">QUEST</a>
         </nav>
 
-        <section class="nes-container with-title bg-white">
-            <p class="title text-[10px]">Medal Wall (Rewards)</p>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
-                <div class="text-center"><i class="nes-icon trophy is-medium"></i><p class="text-[8px] mt-2">移动应用创新赛 国二</p></div>
-                <div class="text-center"><i class="nes-icon trophy is-medium"></i><p class="text-[8px] mt-2">蓝桥杯算法 省三</p></div>
-                <div class="text-center"><i class="nes-icon coin is-medium"></i><p class="text-[8px] mt-2">艾默生/辰竹奖学金</p></div>
+        <section class="nes-container with-title bg-white shadow-pixel">
+            <p class="title text-[10px]">Medal Wall (Honors)</p>
+            <div class="grid grid-cols-3 md:grid-cols-4 gap-y-8 gap-x-2 p-4">
+                <div class="medal-item">
+                    <i class="nes-icon trophy is-medium"></i>
+                    <p class="medal-text"><span class="text-blue-600">国二</span><br>移动应用赛</p>
+                </div>
+                <div class="medal-item">
+                    <i class="nes-icon trophy is-medium"></i>
+                    <p class="medal-text"><span class="text-green-600">省三</span><br>蓝桥杯算法</p>
+                </div>
+                <div class="medal-item">
+                    <i class="nes-icon trophy is-medium"></i>
+                    <p class="medal-text"><span class="text-green-600">省三</span><br>统计建模赛</p>
+                </div>
+                <div class="medal-item">
+                    <i class="nes-icon coin is-medium"></i>
+                    <p class="medal-text">艾默生<br>奖学金</p>
+                </div>
+                <div class="medal-item">
+                    <i class="nes-icon coin is-medium"></i>
+                    <p class="medal-text">辰竹<br>奖学金</p>
+                </div>
+                <div class="medal-item">
+                    <i class="nes-icon coin is-medium"></i>
+                    <p class="medal-text">校二等<br>奖学金</p>
+                </div>
+                <div class="medal-item">
+                    <i class="nes-icon star is-medium"></i>
+                    <p class="medal-text">校优秀学生<br>&团员</p>
+                </div>
+                <div class="medal-item">
+                    <i class="nes-icon heart is-medium"></i>
+                    <p class="medal-text">社会工作<br>奖A等</p>
+                </div>
             </div>
         </section>
 
         <section class="nes-container with-title bg-white shadow-pixel">
             <p class="title text-[10px]">Adventure Log</p>
-            <div class="p-4 space-y-12 text-xs">
-                <div class="flex items-end gap-6">
-                    <div class="nes-balloon from-left"><p>2022年，获得移动应用创新赛全国二等奖，开启技术进阶。</p></div>
-                    <i class="nes-mario scale-150"></i>
+            <div class="p-4 space-y-12 text-[10px]">
+                
+                <div class="flex items-start gap-6">
+                    <div class="flex flex-col items-center">
+                        <i class="nes-jp-logo scale-125 mb-4"></i>
+                        <span class="nes-text is-disabled text-[8px]">2025.07</span>
+                    </div>
+                    <div class="nes-balloon from-left">
+                        <p class="font-bold">西湖大学工学院全英文暑校</p>
+                        <p class="mt-2 text-slate-600">参与前沿工程专题讨论，与顶尖学者进行全英文学术交流。</p>
+                    </div>
                 </div>
-                <div class="flex items-end gap-6 justify-end">
-                    <i class="nes-ash scale-150"></i>
-                    <div class="nes-balloon from-right is-dark"><p>2025年，在 Engineering 期刊担任实习编辑，打磨学术规范。</p></div>
+
+                <div class="flex items-start gap-6 justify-end">
+                    <div class="nes-balloon from-right is-dark">
+                        <p class="font-bold">Engineering 期刊实习编辑</p>
+                        <p class="mt-2 text-slate-400">负责投稿论文文献检索，在 2025-2026 期间深度研习学术写作与科研规范。</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="nes-ash scale-125 mb-4"></i>
+                        <span class="nes-text is-disabled text-[8px]">2025.03</span>
+                    </div>
                 </div>
+
+                <div class="flex items-start gap-6">
+                    <div class="flex flex-col items-center">
+                        <i class="nes-mario scale-125 mb-4"></i>
+                        <span class="nes-text is-disabled text-[8px]">2022.09</span>
+                    </div>
+                    <div class="nes-balloon from-left">
+                        <p>进入华东理工大学，开启“自动化”主线任务，并斩获首个国赛奖项。</p>
+                    </div>
+                </div>
+
             </div>
         </section>
     </div>
