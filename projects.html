@@ -7,6 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .project-card { height: 100%; display: flex; flex-direction: column; }
+        .tag { font-size: 8px; padding: 2px 6px; margin-bottom: 8px; display: inline-block; }
+    </style>
 </head>
 <body class="bg-[#f4f4f4] p-4 md:p-8">
     <div class="max-w-4xl mx-auto space-y-6">
@@ -18,28 +22,54 @@
         </nav>
 
         <section class="nes-container with-title bg-white">
-            <p class="title text-[10px]">Inventory (Research & Works)</p>
+            <p class="title text-[10px]">Research & Publications</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
-                <div class="nes-container is-rounded p-4 border-2">
-                    <p class="text-[8px] text-blue-500 font-bold mb-1">科研·负责人</p>
-                    <h3 class="font-bold text-sm mb-2">大模型多智能体生物发酵控制</h3>
-                    <p class="text-[10px] text-slate-500">国家级大创项目。设计基于 LLM 与多智能体协同的智能指导方案，解决时序数据异常检测问题</p>
+                
+                <div class="nes-container is-rounded p-4 border-2 project-card">
+                    <span class="nes-badge tag"><span class="is-primary">国家级大创 · 负责人</span></span>
+                    <h3 class="font-bold text-sm mb-2">生物发酵过程控制智能指导</h3>
+                    <p class="text-[10px] text-slate-600 mb-2">设计 LLM 与 Multi-agent 协同方案，撰写时序数据异常检测论文。</p>
+                    <p class="text-[8px] text-blue-600 italic">Paper: KDD 2026 Under Review</p>
                 </div>
-                <div class="nes-container is-rounded p-4 border-2">
-                    <p class="text-[8px] text-blue-500 font-bold mb-1">科研·复现</p>
+
+                <div class="nes-container is-rounded p-4 border-2 project-card">
+                    <span class="nes-badge tag"><span class="is-warning">省级三等奖 · 核心</span></span>
+                    <h3 class="font-bold text-sm mb-2">基于 NSGA-II 的 LLM 部署优化</h3>
+                    <p class="text-[10px] text-slate-600">构建多目标优化模型，权衡大模型部署中的成本、能效与性能。</p>
+                </div>
+
+                <div class="nes-container is-rounded p-4 border-2 project-card">
+                    <span class="nes-badge tag"><span class="is-error">校外科研 · 强化学习</span></span>
                     <h3 class="font-bold text-sm mb-2">Decision Transformer 复现</h3>
-                    <p class="text-[10px] text-slate-500">在 Linux 环境下完成 DT 模型训练，并将其迁移应用至无人机调度场景</p>
+                    <p class="text-[10px] text-slate-600">在 Linux 环境下复现 DT 模型，并将其迁移应用于无人机调度场景。</p>
                 </div>
-                <div class="nes-container is-rounded p-4 border-2">
-                    <p class="text-[8px] text-red-500 font-bold mb-1">Publication (Under Review)</p>
-                    <h3 class="font-bold text-sm mb-2">KDD / HCII 2026</h3>
-                    <p class="text-[10px] text-slate-500">涉及 LLM 时序异常检测 (KDD) 及伴随式轻量化交互设计 (HCII)</p>
+
+                <div class="nes-container is-rounded p-4 border-2 project-card">
+                    <span class="nes-badge tag"><span class="is-success">CV · 目标检测</span></span>
+                    <h3 class="font-bold text-sm mb-2">Roboflow 视觉检测项目</h3>
+                    <p class="text-[10px] text-slate-600">参与篮球、羽毛球目标检测模型训练，负责 Roboflow 数据标注与预处理。</p>
                 </div>
-                <div class="nes-container is-rounded p-4 border-2">
-                    <p class="text-[8px] text-green-500 font-bold mb-1">工程·国二</p>
-                    <h3 class="font-bold text-sm mb-2">移动应用创新赛作品</h3>
-                    <p class="text-[10px] text-slate-500">基于 iOS 与 MediaPipe BlazePose 实现人体姿态识别的轻量级健康应用</p>
+
+            </div>
+        </section>
+
+        <section class="nes-container with-title bg-white">
+            <p class="title text-[10px]">Engineering & Innovation</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
+
+                <div class="nes-container is-rounded p-4 border-2 project-card">
+                    <span class="nes-badge tag"><span class="is-primary">国二 · iOS 开发</span></span>
+                    <h3 class="font-bold text-sm mb-2">轻量级健康管理应用</h3>
+                    <p class="text-[10px] text-slate-600 mb-2">基于 MediaPipe BlazePose 实现人体姿态识别及互动游戏。负责交互设计与开发。</p>
+                    <p class="text-[8px] text-blue-600 italic">Paper: HCII 2026 Under Review</p>
                 </div>
+
+                <div class="nes-container is-rounded p-4 border-2 project-card">
+                    <span class="nes-badge tag"><span class="is-dark">IoT · 树莓派</span></span>
+                    <h3 class="font-bold text-sm mb-2">智能盲杖物联网系统</h3>
+                    <p class="text-[10px] text-slate-600">构建通信系统实现数据采集，搭建数据库管理用户数据，优化系统稳定性。</p>
+                </div>
+
             </div>
         </section>
     </div>
