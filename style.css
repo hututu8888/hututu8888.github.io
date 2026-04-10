@@ -1,5 +1,5 @@
 /* style.css */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+SC:wght@400;700&display=swap');
 
 :root {
     --pixel-bg: #f4f4f4;
@@ -9,44 +9,59 @@ body {
     background-color: var(--pixel-bg);
     background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
     background-size: 20px 20px;
-    /* 默认正文字体，保证可读性 */
-    font-family: "Noto Sans SC", -apple-system, sans-serif;
+    
+    /* 核心改进：使用 Noto Sans SC (思源黑体)，这是网页端最稳健、高级的免费中文字体 */
+    font-family: 'Noto Sans SC', "PingFang SC", "Microsoft YaHei", sans-serif;
     color: #212529;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* 像素字体专用于标题和组件 */
-.font-pixel, .title, .nes-btn, .nes-badge, progress, .nes-balloon {
+/* --- 修复按钮和导航栏排版 --- */
+.global-nav, nav {
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    gap: 10px;
+    flex-wrap: wrap; /* 保证手机端不会挤爆 */
+}
+
+/* 统一按钮字体大小，防止因为中文字体变大撑开宽度导致错位 */
+.nes-btn {
+    font-family: 'Press Start 2P', cursive !important;
+    font-size: 10px !important; /* 强制像素字体大小，确保排版一致 */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+/* --- 区分像素部分与阅读部分 --- */
+.title, 
+.nes-badge span, 
+.nes-logo,
+.nes-icon {
     font-family: 'Press Start 2P', cursive !important;
 }
 
-/* 统一像素投影 */
+/* 专门针对正文 P 标签进行美化 */
+p, li, div:not(.nes-btn):not(.title) {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 400;
+}
+
+/* 针对简历中的“高分/排名”等重要数字，可以使用等宽字体增强专业感 */
+span.font-bold {
+    font-weight: 700;
+    color: #333;
+}
+
+/* 容器阴影优化 */
 .nes-container {
     box-shadow: 4px 4px 0px 0px rgba(0,0,0,1) !important;
-    background-color: white !important;
 }
 
 .pixel-avatar {
     image-rendering: pixelated;
-    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
     border: 4px solid black;
-}
-
-/* 导航栏专用样式 */
-.global-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0.5rem !important;
-}
-
-.nav-btn {
-    font-size: 10px !important;
-    text-decoration: none !important;
-}
-
-@media (max-width: 640px) {
-    .nav-btn {
-        font-size: 7px !important;
-        padding: 4px 6px !important;
-    }
 }
