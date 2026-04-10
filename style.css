@@ -9,35 +9,17 @@ body {
     background-color: var(--pixel-bg);
     background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
     background-size: 20px 20px;
-    
-    /* --- 核心修改：正文字体 --- */
-    /* 优先使用系统自带的高清晰中文字体，最后 fallback 到 sans-serif */
-    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    /* 默认正文字体，保证可读性 */
+    font-family: "Noto Sans SC", -apple-system, sans-serif;
     color: #212529;
-    line-height: 1.6; /* 适当增加行高，让文字不拥挤 */
-    -webkit-font-smoothing: antialiased; /* 让字体在 Mac/iOS 上更平滑 */
 }
 
-/* --- 像素字体专用于标题、组件和勋章 --- */
-/* 我们只让具有游戏感的元素保留像素字体，确保信息传达清晰 */
-.font-pixel, 
-.title, 
-.nes-btn, 
-.nes-badge, 
-progress, 
-.nes-balloon, 
-nav a {
+/* 像素字体专用于标题和组件 */
+.font-pixel, .title, .nes-btn, .nes-badge, progress, .nes-balloon {
     font-family: 'Press Start 2P', cursive !important;
-    /* 如果像素字体下的中文显示乱码，可以尝试在后面补一个备用字体 */
 }
 
-/* 如果你觉得正文太细，可以针对 p 标签做微调 */
-p {
-    font-weight: 400;
-    letter-spacing: 0.5px; /* 增加一点字间距 */
-}
-
-/* 保持头像和容器的像素感 */
+/* 统一像素投影 */
 .nes-container {
     box-shadow: 4px 4px 0px 0px rgba(0,0,0,1) !important;
     background-color: white !important;
@@ -47,4 +29,24 @@ p {
     image-rendering: pixelated;
     box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
     border: 4px solid black;
+}
+
+/* 导航栏专用样式 */
+.global-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem !important;
+}
+
+.nav-btn {
+    font-size: 10px !important;
+    text-decoration: none !important;
+}
+
+@media (max-width: 640px) {
+    .nav-btn {
+        font-size: 7px !important;
+        padding: 4px 6px !important;
+    }
 }
