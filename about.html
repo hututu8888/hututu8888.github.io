@@ -10,6 +10,8 @@
     <style>
         .medal-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
         .medal-text { font-size: 7px; margin-top: 8px; line-height: 1.2; }
+        .study-log-card { border: 2px solid #212529; box-shadow: 4px 4px #212529; }
+        .study-tag { border: 2px solid #212529; padding: 2px 6px; font-size: 8px; background: #f7f7f7; }
     </style>
 </head>
 <body class="bg-[#f4f4f4] p-4 md:p-8">
@@ -95,6 +97,56 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <section class="nes-container with-title bg-white shadow-pixel">
+            <p class="title text-[10px]">Study Log (Learning Notes)</p>
+            <div class="p-4 space-y-4 text-[10px]">
+                <p class="text-slate-600">持续记录自学内容、论文笔记与科研技能训练。这个模块可作为“轻博客”长期更新。</p>
+
+                <article class="study-log-card p-3 bg-[#fffef7] space-y-2">
+                    <div class="flex flex-wrap justify-between items-center gap-2">
+                        <p class="font-bold">[ML Reading] Attention Is All You Need 重读笔记</p>
+                        <span class="nes-text is-disabled text-[8px]">2026.04.18</span>
+                    </div>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="study-tag">NLP</span>
+                        <span class="study-tag">Transformer</span>
+                        <span class="study-tag">Paper Notes</span>
+                    </div>
+                    <p class="text-slate-700">梳理了多头注意力的结构与复杂度，补充了位置编码在长序列任务中的局限与改进方向。</p>
+                </article>
+
+                <article class="study-log-card p-3 bg-[#f8fbff] space-y-2">
+                    <div class="flex flex-wrap justify-between items-center gap-2">
+                        <p class="font-bold">[Coding Practice] Python 科研绘图工作流整理</p>
+                        <span class="nes-text is-disabled text-[8px]">2026.04.05</span>
+                    </div>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="study-tag">Python</span>
+                        <span class="study-tag">Matplotlib</span>
+                        <span class="study-tag">Reproducibility</span>
+                    </div>
+                    <p class="text-slate-700">从“数据清洗-可视化-图例标准化”搭建了可复用模板，保证实验图表风格一致，便于后续投稿排版。</p>
+                </article>
+
+                <article class="study-log-card p-3 bg-[#fff9f9] space-y-2">
+                    <div class="flex flex-wrap justify-between items-center gap-2">
+                        <p class="font-bold">[Research Skills] 英文学术写作句型积累</p>
+                        <span class="nes-text is-disabled text-[8px]">2026.03.22</span>
+                    </div>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="study-tag">Academic Writing</span>
+                        <span class="study-tag">Editing</span>
+                        <span class="study-tag">科研表达</span>
+                    </div>
+                    <p class="text-slate-700">按引言、方法、结果和讨论四部分沉淀高频句型，并标注适用语境，提升写作速度与准确性。</p>
+                </article>
+
+                <div class="pt-2">
+                    <p class="nes-text is-primary text-[9px]">Tip: 你可以每周新增 1 条记录（标题 + 标签 + 3 句总结），长期展示科研成长轨迹。</p>
+                </div>
             </div>
         </section>
     </div>
