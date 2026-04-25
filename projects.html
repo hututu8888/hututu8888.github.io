@@ -8,9 +8,28 @@
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .project-card { height: 100%; display: flex; flex-direction: column; }
-        .tag { font-size: 8px; padding: 2px 6px; margin-bottom: 8px; display: inline-block; }
-    </style>
+    /* 基础布局 */
+    .project-card { height: 100%; display: flex; flex-direction: column; }
+    
+    /* 标签样式优化 */
+    .tag { margin-bottom: 8px; display: inline-block; }
+    
+    /* 关键修改：强制 badge 内部中文不使用楷体，保持无衬线 */
+    .nes-badge span {
+        font-family: 'Noto Sans SC', "PingFang SC", "Microsoft YaHei", sans-serif !important;
+        font-weight: 700; /* 加粗看起来更像像素风的厚重感 */
+        letter-spacing: 0px;
+    }
+    
+    /* 如果 badge 里面有纯英文数字（如 LV.22），可以保留像素字体 */
+    .font-pixel-caps {
+        font-family: 'Press Start 2P', cursive !important;
+    }
+
+    /* 词云布局 */
+    .cloud span { margin: 6px; display: inline-block; }
+    .cloud .nes-badge span { padding: 4px 10px; }
+</style>
 </head>
 <body class="bg-[#f4f4f4] p-4 md:p-8">
     <div class="max-w-4xl mx-auto space-y-6">
@@ -21,57 +40,111 @@
             <a href="contact.html" class="nes-btn text-[10px]">QUEST</a>
         </nav>
 
+        <!-- Research & Publications -->
         <section class="nes-container with-title bg-white">
             <p class="title text-[10px]">Research & Publications</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
                 
                 <div class="nes-container is-rounded p-4 border-2 project-card">
                     <span class="nes-badge tag"><span class="is-primary">国家级大创 · 负责人</span></span>
-                    <h3 class="font-bold text-sm mb-2">生物发酵过程控制智能指导</h3>
-                    <p class="text-[10px] text-slate-600 mb-2">设计 LLM 与 Multi-agent 协同方案，撰写时序数据异常检测论文。</p>
+                    <h3 class="font-bold text-sm mb-2">生物发酵过程控制智能指导（LLM + Multi-Agent）</h3>
+                    <p class="text-[10px] text-slate-600 mb-2">负责整体方案设计，构建基于大模型与多智能体的发酵过程决策系统，开展时序数据异常检测研究。</p>
                     <p class="text-[8px] text-blue-600 italic">Paper: KDD 2026 Under Review</p>
                 </div>
 
                 <div class="nes-container is-rounded p-4 border-2 project-card">
                     <span class="nes-badge tag"><span class="is-warning">省级三等奖 · 核心</span></span>
-                    <h3 class="font-bold text-sm mb-2">基于 NSGA-II 的 LLM 部署优化</h3>
-                    <p class="text-[10px] text-slate-600">构建多目标优化模型，权衡大模型部署中的成本、能效与性能。</p>
+                    <h3 class="font-bold text-sm mb-2">基于 NSGA-II 的大模型部署多目标优化</h3>
+                    <p class="text-[10px] text-slate-600">建立多目标优化模型，在成本、能耗与性能之间进行权衡，完成算法建模与实验分析。</p>
                 </div>
 
                 <div class="nes-container is-rounded p-4 border-2 project-card">
-                    <span class="nes-badge tag"><span class="is-error">校外科研 · 强化学习</span></span>
-                    <h3 class="font-bold text-sm mb-2">Decision Transformer 复现</h3>
-                    <p class="text-[10px] text-slate-600">在 Linux 环境下复现 DT 模型，并将其迁移应用于无人机调度场景。</p>
+                    <span class="nes-badge tag"><span class="is-dark">科研实践 · 强化学习</span></span>
+                    <h3 class="font-bold text-sm mb-2">Decision Transformer 复现与迁移应用</h3>
+                    <p class="text-[10px] text-slate-600">在 Linux 环境下复现 Decision Transformer，并探索其在调度与控制场景中的应用潜力。</p>
                 </div>
 
                 <div class="nes-container is-rounded p-4 border-2 project-card">
-                    <span class="nes-badge tag"><span class="is-success">CV · 目标检测</span></span>
-                    <h3 class="font-bold text-sm mb-2">Roboflow 视觉检测项目</h3>
-                    <p class="text-[10px] text-slate-600">参与篮球、羽毛球目标检测模型训练，负责 Roboflow 数据标注与预处理。</p>
+                    <span class="nes-badge tag"><span class="is-success">计算机视觉 · SLAM</span></span>
+                    <h3 class="font-bold text-sm mb-2">单目相机标定与 AprilTag 定位技术</h3>
+                    <p class="text-[10px] text-slate-600">系统学习相机标定与位姿估计原理，实现基于 AprilTag 的目标定位与坐标转换流程。</p>
                 </div>
 
             </div>
         </section>
 
+        <!-- Engineering & Innovation -->
         <section class="nes-container with-title bg-white">
             <p class="title text-[10px]">Engineering & Innovation</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
 
                 <div class="nes-container is-rounded p-4 border-2 project-card">
-                    <span class="nes-badge tag"><span class="is-primary">国二 · iOS 开发</span></span>
-                    <h3 class="font-bold text-sm mb-2">轻量级健康管理应用</h3>
-                    <p class="text-[10px] text-slate-600 mb-2">基于 MediaPipe BlazePose 实现人体姿态识别及互动游戏。负责交互设计与开发。</p>
+                    <span class="nes-badge tag"><span class="is-primary">国家级二等奖 · iOS 开发</span></span>
+                    <h3 class="font-bold text-sm mb-2">轻量级健康管理应用（姿态识别）</h3>
+                    <p class="text-[10px] text-slate-600 mb-2">基于 MediaPipe BlazePose 实现人体姿态识别与互动训练系统，负责交互设计与核心功能开发。</p>
                     <p class="text-[8px] text-blue-600 italic">Paper: HCII 2026 Under Review</p>
                 </div>
 
                 <div class="nes-container is-rounded p-4 border-2 project-card">
                     <span class="nes-badge tag"><span class="is-dark">IoT · 树莓派</span></span>
                     <h3 class="font-bold text-sm mb-2">智能盲杖物联网系统</h3>
-                    <p class="text-[10px] text-slate-600">构建通信系统实现数据采集，搭建数据库管理用户数据，优化系统稳定性。</p>
+                    <p class="text-[10px] text-slate-600">设计通信与数据采集模块，搭建数据库系统，实现设备状态监测与数据管理。</p>
+                </div>
+
+                <div class="nes-container is-rounded p-4 border-2 project-card">
+                    <span class="nes-badge tag"><span class="is-error">CV · 目标检测</span></span>
+                    <h3 class="font-bold text-sm mb-2">Roboflow 视觉检测数据集构建</h3>
+                    <p class="text-[10px] text-slate-600">参与篮球与羽毛球目标检测项目，负责数据标注、清洗与数据集组织。</p>
                 </div>
 
             </div>
         </section>
+
+        <!-- Research Domains / Word Cloud -->
+        <section class="nes-container with-title bg-white">
+            <p class="title text-[10px]">Research Domains</p>
+
+            <!-- Core Areas -->
+            <div class="p-4 space-y-4">
+
+                <div class="text-center">
+                    <p class="text-[9px] text-slate-500 mb-2">CORE</p>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="nes-badge"><span class="is-primary text-base px-2">Machine Learning</span></span>
+                        <span class="nes-badge"><span class="is-success text-base px-2">Optimization</span></span>
+                        <span class="nes-badge"><span class="is-warning text-base px-2">Reinforcement Learning</span></span>
+                        <span class="nes-badge"><span class="is-error text-base px-2">Time-Series</span></span>
+                        <span class="nes-badge"><span class="is-dark text-base px-2">Multi-Agent</span></span>
+                    </div>
+                </div>
+
+                <!-- Applications -->
+                <div class="text-center">
+                    <p class="text-[9px] text-slate-500 mb-2">APPLICATIONS</p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="nes-badge"><span class="is-primary text-sm px-2">Computer Vision</span></span>
+                        <span class="nes-badge"><span class="is-success text-sm px-2">Control Systems</span></span>
+                        <span class="nes-badge"><span class="is-warning text-sm px-2">Robotics</span></span>
+                        <span class="nes-badge"><span class="is-error text-sm px-2">IoT</span></span>
+                        <span class="nes-badge"><span class="is-dark text-sm px-2">Industrial AI</span></span>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="text-center">
+                    <p class="text-[9px] text-slate-500 mb-2">TOOLS</p>
+                    <div class="flex flex-wrap justify-center gap-2 opacity-80">
+                        <span class="nes-badge"><span class="is-primary text-xs px-2">Python</span></span>
+                        <span class="nes-badge"><span class="is-success text-xs px-2">PyTorch</span></span>
+                        <span class="nes-badge"><span class="is-warning text-xs px-2">Linux</span></span>
+                        <span class="nes-badge"><span class="is-error text-xs px-2">Swift</span></span>
+                        <span class="nes-badge"><span class="is-dark text-xs px-2">Data Analysis</span></span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </div>
 </body>
 </html>
