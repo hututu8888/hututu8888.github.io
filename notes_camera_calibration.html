@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>胡雨佳 | Camera Calibration Note</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .note-content h2 { border-bottom: 4px solid #212529; padding-bottom: 5px; margin-top: 2rem; margin-bottom: 1rem; font-weight: bold; font-size: 1.1rem; }
+        .note-content h3 { font-weight: bold; margin-top: 1.5rem; color: #209cee; }
+        .note-content p { margin-bottom: 1rem; }
+        .note-content ul { list-style-type: square; padding-left: 20px; margin-bottom: 1rem; }
+        .note-content li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="bg-[#f4f4f4] p-4 md:p-8">
+    <div class="max-w-4xl mx-auto space-y-6">
+        <nav class="nes-container is-rounded bg-white flex justify-between p-2 mb-4">
+            <a href="about.html" class="nes-btn text-[10px]"><< BACK</a>
+            <div class="hidden md:block py-2 px-4 text-[10px] font-bold">STUDY LOG : CAMERA CALIBRATION</div>
+        </nav>
+
+        <section class="nes-container with-title bg-white shadow-pixel">
+            <p class="title text-[10px]">Technical Note</p>
+            
+            <div class="note-content p-4 text-sm leading-relaxed">
+                <h1 class="text-xl font-bold text-center mb-8">单目相机标定学习笔记</h1>
+
+                <h2>一、 为什么需要相机标定？</h2>
+                <p>相机标定的核心目的有两个：</p>
+                <p><strong>建立相机成像几何模型：</strong>建立物体从三维世界映射到相机成像平面这一过程中的几何模型，这一过程最关键的部分就是要得到相机的内参和外参。</p>
+                <p><strong>矫正透镜畸变：</strong>透镜成像会造成畸变，计算并利用畸变系数来矫正这种像差。</p>
+                <p>本质问题是：如何从像素坐标恢复真实空间中的几何关系。</p>
+
+                <h2>二、 成像过程主线</h2>
+                <p>点是如何从世界到像素的？整个过程可以理解为一个连续的坐标变换链：</p>
+                <div class="nes-container is-rounded p-3 bg-slate-50 text-center text-[20px] mb-4">
+                    世界坐标系 → 相机坐标系 → 图像坐标系 → 像素坐标系
+                </div>
+                <ul>
+                    <li><strong>世界坐标系（3D）：</strong>世界坐标系就是以外界某个参考点建立的坐标系，单位为mm，或者m。</li>
+                    <li><strong>相机坐标系（3D）：</strong>以光心建立相机坐标系，其中轴指向相机的正前方。</li>
+                    <li><strong>图像坐标系（2D）：</strong>光心在成像平面的投影，也就是点建立另一坐标系，称为图像坐标系，单位为mm。</li>
+                    <li><strong>像素坐标系（2D）：</strong>像素坐标系是我们最终用户所看到的，也就是坐标系的原点在图像左上角，单位为像素。</li>
+                    <p><strong>世界坐标系 -> 相机坐标系  </strong>坐标转换<img src="learningnotes/图片1.png"></p>
+                    <p><strong>相机坐标系 -> 图像坐标系  </strong><img src="learningnotes/图片2.png"><img src="learningnotes/图片3.png"></p>
+                    <p><strong>世界坐标系 -> 相机坐标系  </strong>原点不同（图像中间，图像左上角），单位不同（mm，像素）<img src="learningnotes/图片4.png"></p>
+                    <p><img src="learningnotes/图片5.png"></p>
+                    <p><img src="learningnotes/图片6.png"></p>
+                    <p><strong>Note   </strong>归一化平面:图像坐标系的等比缩放，f=1的情况</p>
+
+                </ul>
+
+                <h2>三、 核心桥梁：单应性（Homography）</h2>
+                <p>单应性变换：描述物体在世界坐标系和像素坐标系之间的位置映射关系，对应的变换矩阵称为单应性矩阵。在图像校正、图像拼接、相机位姿估计、视觉SLAM等领域有非常重要的作用</p>
+                <p><img src="learningnotes/图片7.png"><img src="learningnotes/图片8.png"><img src="learningnotes/图片9.png"><img src="learningnotes/图片10.png"></p>
+                <p>单应矩阵H有几个自由度？ 8个，因为这里使用的是齐次坐标系，也就是说可以进行任意尺度的缩放。齐次坐标：齐次坐标就是用N+1维来代表N维坐标，我们可以在一个2D笛卡尔坐标末尾加上一个额外的变量w来形成2D齐次坐标，因此，一个点(X,Y)在齐次坐标里面变成了（x,y,w），并且有X = x/w  Y = y/w
+                把齐次坐标转化为笛卡尔坐标的方法是前面n-1个坐标分量分别除以最后一个分量即可。
+                8自由度的H我们至少需要4对对应的点才能计算出单应矩阵。这也回答了前面图像校正中提到的为何至少需要4个点对的根本原因。但点对中都会包含噪声，一般都大于4个点对，上述方程组采用直接线性解法通常很难得到最优解，所以实际使用中一般会用其他优化方法，如奇异值分解、Levenberg-Marquarat（LM）算法</p>
+                <p>当标定板是平面时，世界点与像素点之间可以通过单应矩阵建立关系。至少需要 4 对点才能求解，并通常结合优化方法获得更稳定结果。</p>
+
+                <h2>四、 畸变模型：现实修正</h2>
+                <p>真实镜头会产生<strong>径向畸变</strong>和<strong>切向畸变</strong>。标定的过程就是通过建立数学模型，并利用非线性优化估计参数，从而将弯曲的像平面“拉直”。</p>
+                <p>径向畸变：镜头中间厚四周薄，越靠近边缘光线越扭曲（EX.鱼眼镜头)</p>
+                    <li>桶形</li>
+                    <li>枕形</li>
+                    <p><img src="learningnotes/图片11.png"></p>
+                    <p>常用r=0处的泰勒级数展开的前几项来近似描述径向畸变</p>
+                    <p><img src="learningnotes/图片12.png"></p>
+                <p>切向畸变：成像平面与透镜平面不平行，产生了透视变换</p>
+                <p><img src="learningnotes/图片13.png"></p>
+                <p>合并考虑两种畸变：直接相加</p>
+
+                <h2>五、 标定法</h2>
+                <div class="nes-table-responsive">
+                    <table class="nes-table is-bordered is-centered" style="width: 100%; font-size: 10px;">
+                        <thead>
+                        <tr style="background-color: #f7f7f7;">
+                            <th>标定方法</th>
+                            <th>优点</th>
+                            <th>缺点</th>
+                            <th>常用方法</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="font-bold text-blue-600">传统相机标定法</td>
+                            <td>可使用于任意的相机模型、精度高</td>
+                            <td>需要标定物、算法复杂</td>
+                            <td>Tsai两步法、张氏标定法</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold text-green-600">主动视觉相机标定法</td>
+                            <td>不需要标定物、算法简单、鲁棒性高</td>
+                            <td>成本高、设备昂贵</td>
+                            <td>主动系统控制相机做特定运动</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold text-red-600">相机自标定法</td>
+                            <td>灵活性强、可在线标定</td>
+                            <td>精度低、鲁棒性差</td>
+                            <td>分层逐步标定、基于Kruppa方程</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                <p>Tsai两步法是先线性求得相机参数，之后考虑畸变因素，得到初始的参数值，通过非线性优化得到最终的相机参数。Tsai两步法速度较快，但仅考虑径向畸变，当相机畸变严重时，该方法不适用。</p>
+
+                <p>张氏标定法使用二维方格组成的标定板进行标定，采集标定板不同位姿图片，提取图片中角点像素坐标，通过单应矩阵计算出相机的内外参数初始值，利用非线性最小二乘法估计畸变系数，最后使用极大似然估计法优化参数。该方法操作简单，而且精度较高，可以满足大部分场合。</p>
+
+                <p>基于主动视觉的相机标定法是通过主动系统控制相机做特定运动，利用控制平台控制相机发生特定的移动拍摄多组图像，依据图像信息和已知位移变化来求解相机内外参数。这种标定方法需要配备精准的控制平台，因此成本较高。</p>
+
+                <p>分层逐步标定法是先对图像的序列做射影重建，在重建的基础上进行放射标定和欧式标定，通过非线性优化算法求得相机内外参数。由于初始参数是模糊值，优化算法收敛性不确定。</p>
+
+                <p>基于Kruppa的自标定法是通过二次曲线建立关于相机内参矩阵的约束方程，至少使用3对图像来标定相机。图像序列长度会影响标定算法的稳定性，无法保证射影空间中的无穷远平面。</p>
+
+
+
+                <h2>六、 张正友标定法流程</h2>
+                <p>《Flexible Camera Calibration By Viewing a Plane From Unknown Orientations》</p>
+                <ol class="nes-list is-disc pl-5">
+                    <li>采集多组不同姿态的标定板图像。</li>
+                    <li>提取每张图像中的角点坐标。</li>
+                    <li>计算单应矩阵并初估内参。</li>
+                    <li>引入畸变模型进行非线性优化。</li>
+                </ol>
+                <p><img src="learningnotes/图片14.png"></p>
+                <p>实际标定过程中，一般使用最大似然估计进行优化，最小化x, x'的位置来求解上述最大似然估计问题</p>
+                <p><img src="learningnotes/图片15.png"></p>
+                <p><img src="learningnotes/图片16.png"></p>
+                <p>一般用LM法来求解</p>
+
+                <h2>七、 数值求解工具：优化算法</h2>
+                <p>凸函数：一元二次可微函数，如果它的二阶导数是正的，那么该函数就是严格凸函数；多元二次可微函数，当它的Hessian矩阵是正定的时候，就是严格凸函数</p>
+                <p>梯度下降法：一阶收敛</p>
+                <p>牛顿法：Jacobian矩阵，Hessian矩阵，二阶收敛，目光更长远，但高维度下计算Hessian 矩阵需要消耗很大的计算量，很多时候甚至无法计算</p>
+                <p>高斯牛顿法：用雅克比矩阵的乘积近似代替牛顿法中的二阶Hessian 矩阵，可能是奇异矩阵或者病态的，此时会导致稳定性很差，算法不收敛。二阶泰勒展开来进行的推导，而泰勒展开只是在一个较小的范围内的近似，因此如果高斯牛顿法计算得到的步长较大的话，上述的近似将不再准确，也会导致算法不收敛。</p>
+                <p>Levenberg-Marquardt（LM）法：比起高斯牛顿法，牺牲一定的收敛速度，更鲁棒。搜索方法是信赖域（Trust Region）方法，前面的都是线性搜索方法</p>
+
+
+                <div class="nes-container is-dark with-title mt-8">
+                    <p class="title text-[10px]">Summary</p>
+                    <p class="text-xs">建立成像模型 → 构造单应关系 → 引入畸变修正 → 通过优化算法求解参数。这是相机标定的完整思考脉络。</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-6">
+            <p class="text-[8px] text-slate-400">© 2026 胡雨佳 (Yujia Hu). Built with NES.css</p>
+        </footer>
+    </div>
+</body>
+</html>
