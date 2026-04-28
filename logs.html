@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>胡雨佳 | Study Log</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 专题容器样式 */
+        .category-section { margin-bottom: 3rem; }
+        .category-title { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+        
+        /* 笔记卡片微调 */
+        .log-card { 
+            border: 4px solid #212529; 
+            transition: all 0.2s; 
+            cursor: pointer; 
+            background: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .log-card:hover { transform: translate(-4px, -4px); box-shadow: 8px 8px #212529; }
+        .log-tag { font-size: 8px; padding: 2px 6px; background: #f0f0f0; border: 2px solid #212529; margin-right: 4px; }
+    </style>
+</head>
+<body class="bg-[#f4f4f4] p-4 md:p-8">
+    <div class="max-w-4xl mx-auto space-y-6">
+        <nav class="nes-container is-rounded bg-white flex justify-around p-2 mb-4 shadow-pixel">
+            <a href="index.html" class="nes-btn text-[10px]">STATUS</a>
+            <a href="projects.html" class="nes-btn text-[10px]">ITEMS</a>
+            <a href="about.html" class="nes-btn text-[10px]">LORE</a>
+            <a href="logs.html" class="nes-btn is-error text-[10px]">LOG</a>
+            <a href="contact.html" class="nes-btn text-[10px]">QUEST</a>
+        </nav>
+
+        <section class="category-section">
+            <div class="category-title">
+                <i class="nes-icon star is-small"></i>
+                <h2 class="text-sm font-bold bg-black text-white px-4 py-1">Computer Vision & Localization</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="log-card p-4" onclick="window.location.href='notes_camera_calibration.html'">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-xs text-blue-600">单目相机标定深度解析</h3>
+                        <span class="text-[8px] text-slate-400">2026.04</span>
+                    </div>
+                    <div class="flex mb-3 flex-wrap gap-y-2">
+                        <span class="log-tag">Calibration</span>
+                        <span class="log-tag">Geometry</span>
+                    </div>
+                    <p class="text-[10px] text-slate-600 flex-grow">从世界坐标系到像素坐标系的数学映射，及畸变矫正原理。</p>
+                </div>
+
+                <div class="log-card p-4" onclick="window.location.href='notes_visual_fiducial_system_apritag.html'">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-xs text-blue-600">AprilTag 定位系统原理</h3>
+                        <span class="text-[8px] text-slate-400">2026.04</span>
+                    </div>
+                    <div class="flex mb-3 flex-wrap gap-y-2">
+                        <span class="log-tag">Fiducial Markers</span>
+                        <span class="log-tag">Pose Estimation</span>
+                    </div>
+                    <p class="text-[10px] text-slate-600 flex-grow">解析视觉基准标记编码逻辑及 6-DOF 位姿解算过程。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <div class="category-title">
+                <i class="nes-icon coin is-small"></i>
+                <h2 class="text-sm font-bold bg-slate-600 text-white px-4 py-1">Research Skills & Methodology</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="log-card p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-xs">Matplotlib 科研绘图标准</h3>
+                        <span class="text-[8px] text-slate-400">2026.04</span>
+                    </div>
+                    <div class="flex mb-3">
+                        <span class="log-tag">Python</span>
+                        <span class="log-tag">Visualization</span>
+                    </div>
+                    <p class="text-[10px] text-slate-600">符合顶会期刊要求的图表配置模板，解决中文显示与公式渲染问题。</p>
+                </div>
+
+                <div class="log-card p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-xs">英文学术写作高频句式</h3>
+                        <span class="text-[8px] text-slate-400">2026.03</span>
+                    </div>
+                    <div class="flex mb-3">
+                        <span class="log-tag">Writing</span>
+                        <span class="log-tag">Academic</span>
+                    </div>
+                    <p class="text-[10px] text-slate-600">分类整理引言、结果、结论部分的常用逻辑连接词与句式库。</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-10 text-center">
+            <p class="text-[8px] text-slate-400 italic">"Keep learning, keep recording."</p>
+        </footer>
+    </div>
+</body>
+</html>

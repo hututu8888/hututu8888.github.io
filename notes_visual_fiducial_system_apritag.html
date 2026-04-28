@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>胡雨佳 | Visual Fiducial System——April Tag</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .note-content h2 { border-bottom: 4px solid #212529; padding-bottom: 5px; margin-top: 2rem; margin-bottom: 1rem; font-weight: bold; font-size: 1.1rem; }
+        .note-content h3 { font-weight: bold; margin-top: 1.5rem; color: #209cee; }
+        .note-content p { margin-bottom: 1rem; }
+        .note-content ul { list-style-type: square; padding-left: 20px; margin-bottom: 1rem; }
+        .note-content li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="bg-[#f4f4f4] p-4 md:p-8">
+    <div class="max-w-4xl mx-auto space-y-6">
+        <nav class="nes-container is-rounded bg-white flex justify-between p-2 mb-4">
+            <a href="logs.html" class="nes-btn text-[10px]"><< BACK</a>
+            <div class="hidden md:block py-2 px-4 text-[10px] font-bold">STUDY LOG : APRIL TAG</div>
+        </nav>
+
+        <section class="nes-container with-title bg-white shadow-pixel">
+            <p class="title text-[10px]">Technical Note</p>
+            
+            <div class="note-content p-4 text-sm leading-relaxed">
+                <h1 class="text-xl font-bold text-center mb-8">April Tag学习笔记</h1>
+
+                <h2>一、 什么是April Tag？</h2>
+                <p>AprilTag是一种视觉基准系统，AprilTag检测软件计算标签相对于摄像机的精确3D位置，方向和标识，只要把这个tag贴到目标上，就可以在识别出这个标签的3D位置和id。</p>
+                
+
+                <h2>二、 不同的种类（family）</h2>
+                <p>几种常见的：</p>
+                <p>TAG16H5 → 0 to 29</p>
+                <p>TAG25H7 → 0 to 241</p>
+                <p>TAG25H9 → 0 to 34</p>
+                <p>TAG36H10 → 0 to 2319</p>
+                <p>TAG36H11 → 0 to 586</p>
+                <p>ARTOOLKIT → 0 to 511</p>
+                <p>不同family，可能格子不同（ex. 4*4, 6*6 格子少可视距离更远，但校验信息更少错误率更高）</p>
+
+
+                <h2>三、 论文精读  AprilTag: A robust and flexible visual fiducial system, ICRA 2011 </h2>
+                <p><img src="learningnotes/图片20.png"></p>
+
+                <p><img src="learningnotes/图片17.jpg"></p>
+                <p><img src="learningnotes/图片18.jpg"></p>
+                <p><img src="learningnotes/图片19.jpg"></p>
+
